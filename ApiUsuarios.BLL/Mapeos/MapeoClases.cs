@@ -16,6 +16,9 @@ namespace ApiUsuarios.BLL.Mapeos
         {
             CreateMap<Usuario, UsuarioDto>();
             CreateMap<UsuarioDto, Usuario>();
+
+            CreateMap<Provincia, ProvinciaDto>();
+            CreateMap<ProvinciaDto, Provincia>();
         }
     }
 }

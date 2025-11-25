@@ -1,7 +1,7 @@
 using ApiUsuarios.BLL.Mapeos;
 using ApiUsuarios.BLL.Servicios;
 using ApiUsuarios.DLL;
-using ApiUsuarios.DLL.Repositorio;
+using ApiUsuarios.DLL.RepositorioGenerico;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -21,7 +21,10 @@ builder.Services.AddDbContext<ApiContext>(options =>
 
 
 builder.Services.AddScoped<IUsuariosServicio, UsuarioServicio>();
-builder.Services.AddScoped<IUsuariosRepositorio, UsuariosRepositorio>();
+builder.Services.AddScoped<IProvinciaServicio, ProvinciaServicio>();
+///builder.Services.AddScoped<IUsuariosRepositorio, UsuariosRepositorio>();
+
+builder.Services.AddScoped(typeof(IRepositorioGenerico<>), typeof(RepositorioGenerico<>));
 
 
 builder.Services.AddAutoMapper(cfg => { }, typeof(MapeoClases));

@@ -18,11 +18,20 @@ public partial class ApiContext : DbContext
 
     public virtual DbSet<Usuario> Usuarios { get; set; }
 
+    public virtual DbSet<Provincia> Provincias { get; set; }
+
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.Entity<Usuario>(entity =>
         {
             entity.ToTable("Usuario");
+
+            entity.Property(e => e.Id).HasColumnName("ID");
+        });
+
+        modelBuilder.Entity<Provincia>(entity =>
+        {
+            entity.ToTable("Provincia");
 
             entity.Property(e => e.Id).HasColumnName("ID");
         });
